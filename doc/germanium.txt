@@ -70,7 +70,7 @@ VARIABLES					*germanium-variables*
 ------------------------------------------------------------------------------
 KEY-MAPPINGS					*germanium-key-mappings*
 
-<Plug>(germanium)				*<Plug>(germanium)*
+<Plug>(Germanium)				*<Plug>(Germanium)*
 	available mode: normal and visual
 	normal: generate image of file
 	visual: generate image of selected range
