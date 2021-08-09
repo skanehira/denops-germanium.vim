@@ -60,6 +60,7 @@ COMMANDS					*germanium-commands*
 	  -b={color}    Specify background color of image.
 	  -f={font}     Specify font.
 	  -l={language} The language of syntax highlight.
+	  -s={style}    The style for syntax highlight.
 	Default, the image will copy to clipboard.
 	If {file} is specified, then {file} will be used.
 
