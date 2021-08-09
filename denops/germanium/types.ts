@@ -1,0 +1,55 @@
+export type Style =
+  | "abap"
+  | "algol"
+  | "algol_nu"
+  | "arduino"
+  | "autumn"
+  | "base16-snazzy"
+  | "borland"
+  | "bw"
+  | "colorful"
+  | "doom-one"
+  | "doom-one2"
+  | "dracula"
+  | "emacs"
+  | "friendly"
+  | "fruity"
+  | "github"
+  | "hr_high_contrast"
+  | "hrdark"
+  | "igor"
+  | "lovelace"
+  | "manni"
+  | "monokai"
+  | "monokailight"
+  | "murphy"
+  | "native"
+  | "nord"
+  | "paraiso-dark"
+  | "paraiso-light"
+  | "pastie"
+  | "perldoc"
+  | "pygments"
+  | "rainbow_dash"
+  | "rrt"
+  | "solarized-dark"
+  | "solarized-dark256"
+  | "solarized-light"
+  | "swapoff"
+  | "tango"
+  | "trac"
+  | "vim"
+  | "vs"
+  | "vulcan"
+  | "xcode"
+  | "xcode-dark";
+
+export interface Option {
+  Input?: string;
+  InputFile?: string;
+  Output?: string;
+  BackgroundColor?: string;
+  Font?: string;
+  Language: string;
+  Style?: Style;
+}

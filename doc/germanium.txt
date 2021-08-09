@@ -53,7 +53,7 @@ INTERFACE					*germanium-interface*
 ------------------------------------------------------------------------------
 COMMANDS					*germanium-commands*
 						*:Germanium*
-:Germanium [-obfls] {file}
+:Germanium [-obfls]
 	Generate image of source code.
 	You can use options bellow.
 	  -o={path}     Write output image to the {path}.
@@ -62,7 +62,6 @@ COMMANDS					*germanium-commands*
 	  -l={language} The language of syntax highlight.
 	  -s={style}    The style for syntax highlight.
 	Default, the image will copy to clipboard.
-	If {file} is specified, then {file} will be used.
 
 ------------------------------------------------------------------------------
 VARIABLES					*germanium-variables*
