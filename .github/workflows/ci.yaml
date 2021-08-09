@@ -27,7 +27,6 @@ jobs:
     strategy:
       matrix:
         runner:
-          - windows-latest
           - macos-latest
           - ubuntu-latest
         version:
