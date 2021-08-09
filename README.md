@@ -1,11 +1,12 @@
-# denops-template.vim
-A plugin template for [denops](https://github.com/vim-denops)
+# denops-germanium.vim
+A Vim/Neovim plugin for [germanium](https://github.com/matsuyoshi30/germanium)
+
+## Requirements
+- [denops](https://github.com/vim-denops/denops.vim)
+- [germanium](https://github.com/matsuyoshi30/germanium)
 
 ## Usage
-1. Fork this repository.
-   Repository name must be `denops-xxx.vim`
-2. Run `make init`
-   Its rename directory `./denops/template` to `./denops/xxx`, `xxx` is your repository name that part of `denops-xxx`.
+Please See help for details.
 
 ## Author
 skanehira

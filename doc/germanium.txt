@@ -1,0 +1,91 @@
+*germanium.txt*	The Vim/Neovim plugin that can generate image from source code.
+
+Author: skanehira <sho19921005@gmail.com>
+License : MIT license  {{{
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+    The above copyright notice and this permission notice shall be included
+    in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+    CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+}}}
+
+==============================================================================
+CONTENTS					*germanium-contents*
+
+INTRODUCTION			|germanium-introduction|
+USAGE				|germanium-usage|
+INTERFACE			|germanium-interface|
+  COMMANDS			  |germanium-commands|
+  VARIABLES			  |germanium-variables|
+  KEY-MAPPINGS			  |germanium-key-mappings|
+  FUNCTIONS			  |germanium-functions|
+TODO				|germanium-todo|
+CHANGELOG			|germanium-changelog|
+
+
+==============================================================================
+INTRODUCTION					*germanium-introduction*
+
+*germanium* The Vim/Neovim plugin that can generate image of source code
+
+Latest version:
+https://github.com/skanehira/germanium.vim
+
+
+==============================================================================
+USAGE						*germanium-usage*
+
+==============================================================================
+INTERFACE					*germanium-interface*
+
+------------------------------------------------------------------------------
+COMMANDS					*germanium-commands*
+						*:Germanium*
+:Germanium [-obfls] {file}
+	Generate image of source code.
+	You can use options bellow.
+	  -o={path}     Write output image to the {path}.
+	  -b={color}    Specify background color of image.
+	  -f={font}     Specify font.
+	  -l={language} The language of syntax highlight.
+	Default, the image will copy to clipboard.
+	If {file} is specified, then {file} will be used.
+
+------------------------------------------------------------------------------
+VARIABLES					*germanium-variables*
+
+
+------------------------------------------------------------------------------
+KEY-MAPPINGS					*germanium-key-mappings*
+
+<Plug>(germanium)				*<Plug>(germanium)*
+	available mode: normal and visual
+	normal: generate image of file
+	visual: generate image of selected range
+
+------------------------------------------------------------------------------
+FUNCTIONS					*germanium-functions*
+
+
+==============================================================================
+TODO						*germanium-todo*
+
+
+
+==============================================================================
+CHANGELOG					*germanium-changelog*
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:noet:fen:
