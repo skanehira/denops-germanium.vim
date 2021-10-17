@@ -65,16 +65,11 @@ for (const tt of buildOptionErrorTests) {
 
 test({
   mode: "all",
-  name: "get file extension error",
+  name: "get file extension without filetype",
   fn: async (denops) => {
     await denops.cmd("new test");
-    await assertThrowsAsync(
-      async () => {
-        await buildOption(denops, 1, 1, "");
-      },
-      Error,
-      "failed to get file extension. filetype is undefined",
-    );
+    const op = await buildOption(denops, 1, 1, "");
+    assertEquals(op.Language, "noop");
   },
 });
 

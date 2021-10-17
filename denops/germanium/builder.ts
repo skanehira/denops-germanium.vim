@@ -51,9 +51,9 @@ export async function buildOption(
   }
 
   if (!option.Language) {
-    const ft = await denops.eval("&ft") as string;
+    let ft = await denops.eval("&ft") as string;
     if (ft === "") {
-      throw new Error("failed to get file extension. filetype is undefined");
+      ft = "noop";
     }
     option["Language"] = ft;
   }
