@@ -30,11 +30,8 @@ jobs:
           - macos-latest
           - ubuntu-latest
         version:
-          - "1.11.0"
           - "1.x"
         host_version:
-          - vim: "v8.1.2424"
-            nvim: "v0.4.4"
           - vim: "v8.2.3081"
             nvim: "v0.5.0"
     runs-on: ${{ matrix.runner }}
@@ -56,6 +53,18 @@ jobs:
           neovim: true
           version: "${{ matrix.host_version.nvim }}"
         if: matrix.host_version.nvim != ''
+      - name: Install germanium
+        run: |
+          case $( uname -s ) in
+            Linux)
+              curl -L "https://github.com/matsuyoshi30/germanium/releases/download/v1.2.2/germanium_1.2.2_linux_x86_64.tar.gz" -o /tmp/germanium.tar.gz
+              ;;
+            Darwin)
+              curl -L "https://github.com/matsuyoshi30/germanium/releases/download/v1.2.2/germanium_1.2.2_darwin_x86_64.tar.gz" -o /tmp/germanium.tar.gz
+              ;;
+          esac
+          tar xvzf /tmp/germanium.tar.gz -C /usr/local/bin/
+          chmod 777 /usr/local/bin/germanium
       - name: Clone denops
         id: denops
         run: |
