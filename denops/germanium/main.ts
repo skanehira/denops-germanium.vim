@@ -6,7 +6,7 @@ export async function main(denops: Denops): Promise<void> {
   );
 
   await denops.cmd(`nnoremap <silent> <Plug>(Germanium) :<C-u>Germanium<CR>`);
-  await denops.cmd(`xnoremap <silent> <Plug>(Germanium) :Germanium<CR>`);
+  await denops.cmd(`xnoremap <silent> <Plug>(Germanium) :<C-u>Germanium<CR>`);
 
   denops.dispatcher = {
     async germanium(start: unknown, end: unknown, arg: unknown): Promise<void> {
