@@ -41,10 +41,20 @@ export async function buildOption(
 
   if (start === end && !await denops.eval("&modified")) {
     const file = await denops.call("expand", "%:p") as string;
-    if (!file) {
-      throw new Error(`failed to get file path`);
+
+    try {
+      await Deno.lstat(file);
+      option["InputFile"] = file;
+    } catch (err) {
+      // fallback if file is not exists
+      if (err instanceof Deno.errors.NotFound) {
+        option.Input = (await denops.eval(`getline(1, "$")`) as string[]).join(
+          "\n",
+        );
+      } else {
+        throw err;
+      }
     }
-    option["InputFile"] = file;
   } else {
     const input = await denops.eval(`getline(${start}, ${end})`) as string[];
     option["Input"] = input.join("\n");
@@ -53,7 +63,7 @@ export async function buildOption(
   if (!option.Language) {
     let ft = await denops.eval("&ft") as string;
     if (ft === "") {
-      ft = "noop";
+      ft = await denops.eval("&buftype") === "terminal" ? "sh" : "noop";
     }
     option["Language"] = ft;
   }
