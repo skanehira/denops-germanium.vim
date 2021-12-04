@@ -38,14 +38,17 @@ CHANGELOG			|germanium-changelog|
 ==============================================================================
 INTRODUCTION					*germanium-introduction*
 
-*germanium* The Vim/Neovim plugin that can generate image of source code
+*germanium* The Vim/Neovim plugin that can generate image from source code
 
 Latest version:
-https://github.com/skanehira/germanium.vim
+https://github.com/skanehira/denops-germanium.vim
 
 
 ==============================================================================
 USAGE						*germanium-usage*
+
+At first time, you have to install germanium from
+https://github.com/matsuyoshi30/germanium
 
 ==============================================================================
 INTERFACE					*germanium-interface*
