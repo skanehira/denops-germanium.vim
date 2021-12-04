@@ -14,12 +14,16 @@ export async function main(denops: Denops): Promise<void> {
         console.log(`start or end is not number. start: ${start}, end: ${end}`);
         return;
       }
-      const option = await buildOption(denops, start, end, arg);
-      const result = await run(option);
-      if (result.Code !== 0) {
-        console.error(result.Output, result.StderrOutput);
-      } else {
-        console.log(`successed`);
+      try {
+        const option = await buildOption(denops, start, end, arg);
+        const result = await run(option);
+        if (result.Code !== 0) {
+          console.error(result.Output, result.StderrOutput);
+        } else {
+          console.log(`successed`);
+        }
+      } catch (err) {
+        console.error(err.message);
       }
     },
   };

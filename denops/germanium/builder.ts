@@ -48,16 +48,24 @@ export async function buildOption(
     } catch (err) {
       // fallback if file is not exists
       if (err instanceof Deno.errors.NotFound) {
-        option.Input = (await denops.eval(`getline(1, "$")`) as string[]).join(
+        const input = (await denops.eval(`getline(1, "$")`) as string[]).join(
           "\n",
         );
+        if (!input) {
+          throw new Error("buffer is empty");
+        }
+        option.Input = input;
       } else {
         throw err;
       }
     }
   } else {
-    const input = await denops.eval(`getline(${start}, ${end})`) as string[];
-    option["Input"] = input.join("\n");
+    const input = (await denops.eval(`getline(${start}, ${end})`) as string[])
+      .join("\n");
+    if (!input) {
+      throw new Error("buffer is empty");
+    }
+    option["Input"] = input;
   }
 
   if (!option.Language) {

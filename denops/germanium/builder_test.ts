@@ -1,5 +1,5 @@
 import { buildOption } from "./builder.ts";
-import { assertEquals, assertThrowsAsync, Option, test } from "./deps.ts";
+import { assertEquals, assertRejects, Option, test } from "./deps.ts";
 
 test({
   mode: "all",
@@ -34,33 +34,35 @@ func main() {
   },
 });
 
-const buildOptionErrorTests = [
-  {
-    name: "invalid arg",
-    arg: "-o",
-    want: "failed to get option or value: -o",
-  },
-  {
-    name: "without arg",
-    arg: "",
-    want: "failed to get file path",
-  },
-];
-
-for (const tt of buildOptionErrorTests) {
-  test({
-    mode: "all",
-    name: test.name,
-    fn: async (denops) => {
-      await assertThrowsAsync(
-        async () => {
-          await buildOption(denops, 1, 1, tt.arg);
-        },
-        Error,
-        tt.want,
-      );
+{
+  const tests = [
+    {
+      name: "invalid arg",
+      arg: "-o",
+      want: "failed to get option or value: -o",
     },
-  });
+    {
+      name: "without arg",
+      arg: "",
+      want: "buffer is empty",
+    },
+  ];
+
+  for (const tt of tests) {
+    test({
+      mode: "all",
+      name: tt.name,
+      fn: async (denops) => {
+        await assertRejects(
+          async () => {
+            await buildOption(denops, 1, 1, tt.arg);
+          },
+          Error,
+          tt.want,
+        );
+      },
+    });
+  }
 }
 
 test({
@@ -68,8 +70,13 @@ test({
   name: "get file extension without filetype",
   fn: async (denops) => {
     await denops.cmd("new test");
+    await denops.call("setline", 1, ["hello"]);
     const op = await buildOption(denops, 1, 1, "");
-    assertEquals(op.Language, "noop");
+    assertEquals(op, {
+      Input: "hello",
+      Language: "noop",
+      Style: "native",
+    });
   },
 });
 
